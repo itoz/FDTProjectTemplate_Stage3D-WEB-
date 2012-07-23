@@ -15,7 +15,7 @@
 
 
 ##create project
-src直下のクラス
+ドキュメントクラスをsrc直下のクラスとして下さい。
 
 
 ##caution!
@@ -26,5 +26,6 @@ src直下のクラス
 + ${MainClassName}.launch の MAIN_CLASS
 
 
-####thanks
-away3d liblary
+---
+
+author [@itoz](http://www.romatica.com/)
