@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Stage3D Web</name>
+	<version>2.5</version>
+	<description>${targetPlatform} project type.</description>
+	<projectType>${projectType}</projectType>
+	<variables>
+		<primaryGroup label="">	
+			<group label="Application Setup">
+				<variable name="appId" label="Default Package:" default=""
+					type="string" />						
+			</group>
+			<group label="Project Setup">
+				<variable name="selectedSDK" label="Default SDK" default="_highest" type="sdk(4.5,4.9,3.0,4)" />									
+			</group>
+		</primaryGroup>				
+	</variables>
+	<expressions>
+		<expression name="missingSDKWarning">This template requires the Flex 4.5 SDK or later.</expression>
+		<expression name="hasMinimumSDK" value="sdkVersionExists('4.5','4.6')"/>
+		<expression name="templateError" value="if(!${hasMinimumSDK},${missingSDKWarning},'')"/>				
+		<expression name="projectType" value="'Web'" />
+		<expression name="targetPlatform" value="'Web'" />
+		<expression name="preferredSdk" value="${selectedSDK}"/>		
+		<expression name="postFileName" value="replaceRegex(${projectName}, '([^\w]+)', '')" />
+		<expression name="fileName" value="replaceRegex(${postFileName}, '(^\d+)', '')" />
+		<expression name="packageStructure" value="replaceRegex(${appId}, '([.]+)', '/')" />		
+		<expression name="sourceFolder" value="src" />		
+		<expression name="outputFolder" value="bin" />				
+		<expression name="autoLibFolder" value="lib" />	
+	</expressions>
+	<folders>
+		<sourceFolder>${sourceFolder}</sourceFolder>
+		<outputFolder>${outputFolder}</outputFolder>
+		<autoLibFolder>${autoLibFolder}</autoLibFolder>
+	</folders>
+
+	<contentCreation processFileExtensions="xml,launch,build,properties,as,html,txt">
+		<!-- If AS -->
+		<file src="as/start.as" dest="${sourceFolder}/${packageStructure}/${fileName}.as" if="!${useFlex}"/>		
+		
+		<!-- HTML Template -->
+		<folder src="html-template" dest="html-template" recursive="true" />
+		<folder src="launch" dest="launch" recursive="true" />
+		<folder src="build" dest="build" recursive="true" />
+		
+	</contentCreation>
+</tns:projectTemplate>
+
