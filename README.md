@@ -19,8 +19,8 @@
 
 
 ##caution!
-現状ドキュメントクラスはsrc直下のクラスしか対応していない.
-（下記2箇所を修正すると、src直下以外のファイルも動的生成プレビュー可能になる）
+現状動的生成プレビューははsrc直下のドキュメントクラスしか対応していない.
+（src直下以外のファイルも動的生成プレビューしたい場合は下記2箇所のパスを修正）
 
 + build/post_compile.xml の APP_ROOT の value
 + ${MainClassName}.launch の MAIN_CLASS
