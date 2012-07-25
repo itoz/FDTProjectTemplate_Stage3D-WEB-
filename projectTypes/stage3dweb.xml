@@ -12,10 +12,6 @@
 		<swc sdkKinds="flex3, flex4">
 			<path>frameworks/libs/player/{playerVersion}/playerglobal.swc</path>
 		</swc>
-		
-		<swc sdkKinds="flex4">
-			<path>frameworks/libs/textLayout.swc</path>
-		</swc>
 		<swc sdkKinds="flex4">
 			<path>frameworks/libs/textLayout.swc</path>
 		</swc>
